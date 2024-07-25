@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "title": "Camiseta Local Liverpool FC 2024",
+        "description": "Camiseta oficial del Liverpool FC para la temporada 2024.",
+        "price": 79.99,
+        "img": "",
+        "code": 1001,
+        "stock": 150,
+        "category": "Ropa"
+    },
+    {
+        "id": 2,
+        "title": "Bufanda Liverpool FC",
+        "description": "Bufanda clásica del Liverpool FC con el escudo del club.",
+        "price": 19.99,
+        "img": "",
+        "code": 1002,
+        "stock": 200,
+        "category": "Accesorios"
+    },
+    {
+        "id": 3,
+        "title": "Gorra Liverpool FC",
+        "description": "Gorra ajustable con el logo del Liverpool FC.",
+        "price": 24.99,
+        "img": "",
+        "code": 1003,
+        "stock": 100,
+        "category": "Accesorios"
+    },
+    {
+        "id": 4,
+        "title": "Taza Liverpool FC",
+        "description": "Taza de cerámica con el escudo del Liverpool FC.",
+        "price": 14.99,
+        "img": "",
+        "code": 1004,
+        "stock": 300,
+        "category": "Hogar"
+    },
+    {
+        "id": 5,
+        "title": "Llavero Liverpool FC",
+        "description": "Llavero de metal con el logo del Liverpool FC.",
+        "price": 9.99,
+        "img": "",
+        "code": 1005,
+        "stock": 500,
+        "category": "Accesorios"
+    },
+    {
+        "id": 6,
+        "title": "Póster Liverpool FC",
+        "description": "Póster de alta calidad con los jugadores del Liverpool FC.",
+        "price": 12.99,
+        "img": "",
+        "code": 1006,
+        "stock": 150,
+        "category": "Decoración"
+    },
+    {
+        "id": 7,
+        "title": "Chaqueta de Entrenamiento Liverpool FC",
+        "description": "Chaqueta de entrenamiento oficial del Liverpool FC.",
+        "price": 89.99,
+        "img": "",
+        "code": 1007,
+        "stock": 80,
+        "category": "Ropa"
+    },
+    {
+        "id": 8,
+        "title": "Mochila Liverpool FC",
+        "description": "Mochila duradera con la marca del Liverpool FC.",
+        "price": 49.99,
+        "img": "",
+        "code": 1008,
+        "stock": 120,
+        "category": "Bolsos"
+    },
+    {
+        "id": 9,
+        "title": "Botella de Agua Liverpool FC",
+        "description": "Botella de agua reutilizable con el logo del Liverpool FC.",
+        "price": 17.99,
+        "img": "",
+        "code": 1009,
+        "stock": 220,
+        "category": "Accesorios"
+    },
+    {
+        "id": 10,
+        "title": "Balón Liverpool FC",
+        "description": "Balón oficial del Liverpool FC.",
+        "price": 29.99,
+        "img": "",
+        "code": 1010,
+        "stock": 90,
+        "category": "Artículos Deportivos"
+    }
+]
