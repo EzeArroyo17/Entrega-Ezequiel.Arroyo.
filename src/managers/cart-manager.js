@@ -16,11 +16,11 @@ class CartManager {
     async cargarCarritos() {
         try {
             const data = await fs.readFile(this.path, "utf-8");
-            this.carts = JSON.parse(data)
+            this.cart = JSON.parse(data)
 
-            if (this.carts.length > 0) {
+            if (this.cart.length > 0) {
                 //Verifico que exista un elemento
-                this.ultId = Math.max(...this.carts.map(cart => cart.id)) //Map retorna un nuevo array
+                this.ultId = Math.max(...this.cart.map(cart => cart.id)) //Map retorna un nuevo array
                 //Uso el metodo map para crear un nuevo array que solo tenga los id del carrito y con math.max obtengo el mayor
             }
 
@@ -33,7 +33,7 @@ class CartManager {
 
     }
     async guardarCarritos() {
-        await fs.writeFile(this.path, JSON.stringify(this.carts, null, 2))
+        await fs.writeFile(this.path, JSON.stringify(this.cart, null, 2))
     }
 
     // Crear el carrito:
@@ -57,9 +57,12 @@ class CartManager {
             const carrito = this.cart.find(c => c.id === carritoId)
             if (!carrito) { 
                 throw new Error("No existe un carrito con ese id")
+                
             }
+            return carrito
         }catch (error) {
-
+            console.log(error);
+            
         }
     }
 
