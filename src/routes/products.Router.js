@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
 })
 
 
-router.put("/", (req, res) => { // Formula para recuperar el objeto y como modificarlo
+router.put("/", (req, res) => { 
     const { id } = req.params;
     const { title,
         description,

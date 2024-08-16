@@ -1,4 +1,3 @@
-
 import fs from 'fs/promises';
 
 
@@ -8,26 +7,21 @@ class CartManager {
         this.cart = [];
         this.ultId = 0;
 
-        //Cargar carritos almacenados en el archivo:
         this.cargarCarritos()
     }
 
-    // Metodos auxiliares para cargar y leer archivos
     async cargarCarritos() {
         try {
             const data = await fs.readFile(this.path, "utf-8");
             this.cart = JSON.parse(data)
 
             if (this.cart.length > 0) {
-                //Verifico que exista un elemento
-                this.ultId = Math.max(...this.cart.map(cart => cart.id)) //Map retorna un nuevo array
-                //Uso el metodo map para crear un nuevo array que solo tenga los id del carrito y con math.max obtengo el mayor
+                this.ultId = Math.max(...this.cart.map(cart => cart.id)) 
             }
 
         } catch (error) {
             console.log("Error al cargar los ID", error);
 
-            // Si no existe el archivo lo creo
             await this.guardarCarritos()
         }
 
@@ -36,8 +30,6 @@ class CartManager {
         await fs.writeFile(this.path, JSON.stringify(this.cart, null, 2))
     }
 
-    // Crear el carrito:
-
     async crearCarrito (){
         const nuevoCarrito = {
             id : ++this.ultId,
@@ -45,12 +37,10 @@ class CartManager {
         }
         this.carts.push(nuevoCarrito);
 
-        // Guarda el array en el archivo:
         await this.guardarCarritos();
         return nuevoCarrito;
     }
 
-    // Retorne el carrito por id:
     
     async getCarritoPorId(carritoId){
         try{
@@ -66,13 +56,11 @@ class CartManager {
         }
     }
 
-    //Agregar productos al carrito
 
     async agregarProductosAlCarrito (carritoId, productoId, quantity = 1){
         const carrito = await this.getCarritoPorId(carritoId);
         const existeProducto = carrito.products.find(p => p.product === productoId)
         
-        // Verifico si existe el producto
         if (existeProducto) {
             existeProducto.quantity += quantity;
         }else{

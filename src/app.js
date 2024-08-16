@@ -49,4 +49,10 @@ io.on("connection", async (socket) => {
 
     socket.emit("product", await manager.getProducts());
 
+    socket.on("deleteProduct", async (id) =>{
+        await manager.deleteProduct(id)
+
+        io.sockets.emit("product", await manager.getProducts())
+    })
+
 })
