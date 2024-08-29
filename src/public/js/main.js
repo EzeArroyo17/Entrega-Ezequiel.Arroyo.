@@ -2,7 +2,6 @@ console.log("Si funcionaaaaaaaaaaa");
 
 const socket = io();
 
-
 socket.on("product", (data) => {
 
     renderProducts(data)
@@ -62,3 +61,4 @@ form.addEventListener('submit', function (event) {
 
     document.getElementById("productsForm").reset();
 });
+
