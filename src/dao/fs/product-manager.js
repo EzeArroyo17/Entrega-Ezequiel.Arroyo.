@@ -16,14 +16,11 @@ class ProductManager {
             return;
         }
 
-        //2) Validacion: 
-
         if (this.products.some(item => item.code === code)) {
             console.log("El codigo debe ser unico.. o todos moriremos");
             return;
         }
 
-        //3) Crear el producto, pero que tenga el id autoincrementable. 
         const nuevoProducto = {
             id: ++ProductManager.ultId,
             title,
@@ -34,10 +31,9 @@ class ProductManager {
             stock
         }
 
-        //4) Metemos el producto al array. 
         this.products.push(nuevoProducto);
 
-        //5) Lo guardamos en el archivo: 
+
         await this.guardarArchivo(this.products);
     }
 
@@ -68,7 +64,6 @@ class ProductManager {
         }
     }
 
-    //Métodos auxiliares: 
     async leerArchivo() {
         const respuesta = await fs.readFile(this.path, "utf-8");
         const arrayProductos = JSON.parse(respuesta);
@@ -78,8 +73,6 @@ class ProductManager {
     async guardarArchivo(arrayProductos) {
         await fs.writeFile(this.path, JSON.stringify(arrayProductos, null, 2));
     }
-
-    //Método para actualizar productos: 
 
     async updateProduct(id, productoActualizado) {
         try {

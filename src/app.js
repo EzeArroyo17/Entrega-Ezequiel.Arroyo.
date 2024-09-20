@@ -31,19 +31,23 @@ app.get("/", async (req, res) => {
     let page = req.query.page || 1;
     let limit = 8;
 
-    const listProducts = await ProductModel.paginate({}, { limit, page }).lean();
+    try {
+        const listProducts = await ProductModel.paginate({}, { limit, page }).lean();
 
-
-    res.render("home", {
-        products: listProducts.docs,
-        hasPrevPage: listProducts.hasPrevPage,
-        hasNextPage: listProducts.hasNextPage,
-        prevPage: listProducts.prevPage,
-        nextPage: listProducts.nextPage,
-        currentPage: listProducts.page,
-        totalPages: listProducts.totalPages
-    })
-})
+        res.render("home", {
+            products: listProducts.docs,
+            hasPrevPage: listProducts.hasPrevPage,
+            hasNextPage: listProducts.hasNextPage,
+            prevPage: listProducts.prevPage,
+            nextPage: listProducts.nextPage,
+            currentPage: listProducts.page,
+            totalPages: listProducts.totalPages
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error al obtener productos");
+    }
+});
 
 
 

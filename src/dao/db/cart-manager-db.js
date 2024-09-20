@@ -8,6 +8,7 @@ class CartManager {
             return newCart
         } catch (error) {
             console.log("Error");
+            throw new Error("No se pudo crear el carrito");
             
         }
     }

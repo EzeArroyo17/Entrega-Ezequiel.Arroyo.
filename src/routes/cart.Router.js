@@ -52,7 +52,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
 router.delete("/:cid/products/:pid", async (req, res) => {
     const { cid, pid } = req.params;
     try {
-        const updatedCart = cartManager.removeProductFromCart(cid, pid);
+        const updatedCart = await cartManager.removeProductFromCart(cid, pid);
         if (updatedCart) {
             res.json(updatedCart);
         } else {
@@ -63,7 +63,6 @@ router.delete("/:cid/products/:pid", async (req, res) => {
     }
 });
 
-// Actualizar carrito con el producto
 router.put("/:cid", async (req, res) => {
     const { cid } = req.params;
     const { products } = req.body;
@@ -79,7 +78,6 @@ router.put("/:cid", async (req, res) => {
     }
 });
 
-// Actualizar cantidad de productos
 router.put("/:cid/products/:pid", async (req, res) => {
     const { cid, pid } = req.params;
     const { quantity } = req.body;
@@ -95,7 +93,6 @@ router.put("/:cid/products/:pid", async (req, res) => {
     }
 });
 
-// Eliminar carrito
 router.delete("/:cid", async (req, res) => {
     const { cid } = req.params;
     try {

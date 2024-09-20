@@ -4,8 +4,7 @@ class ProductManager {
     async addProduct({ title, description, price, img, code, stock, category, thumbnails }) {
         try {
             if (!title || !description || !price || !img || !code || !stock || !category) {
-                console.log("Todos los campos son obligatorios");
-                return null;
+                error("Todos los campos son obligatorios");
             }
 
 

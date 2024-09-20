@@ -1,4 +1,3 @@
-console.log("Si funcionaaaaaaaaaaa");
 
 const socket = io();
 
@@ -49,13 +48,12 @@ form.addEventListener('submit', function (event) {
     const price = document.getElementById('price').value;
 
     const productCard = `
-        <div class="product-card">
-            <li>${title}</li>
-            <li>Descripción:${description}<li>
-            <li>Precio: $${price}<li>
-        '}
-        </div>
-    `;
+    <div class="product-card">
+        <li>${title}</li>
+        <li>Descripción: ${description}</li>
+        <li>Precio: $${price}</li>
+    </div>
+`;
 
     document.getElementById("productsRealTime").innerHTML += productCard;
 
