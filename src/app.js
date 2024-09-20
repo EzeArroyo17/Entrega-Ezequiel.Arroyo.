@@ -11,6 +11,7 @@ const manager = new ProductManager()
 import ProductModel from "./dao/models/product.model.js";
 import "./database.js";
 
+
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,11 +29,11 @@ app.set("views", "./src/view");
 
 
 app.get("/", async (req, res) => {
-    let page = req.query.page || 1;
+    let page = parseInt(req.query.page) || 1; 
     let limit = 8;
 
     try {
-        const listProducts = await ProductModel.paginate({}, { limit, page }).lean();
+        const listProducts = await ProductModel.paginate({}, { limit, page });
 
         res.render("home", {
             products: listProducts.docs,
@@ -48,7 +49,6 @@ app.get("/", async (req, res) => {
         res.status(500).send("Error al obtener productos");
     }
 });
-
 
 
 
